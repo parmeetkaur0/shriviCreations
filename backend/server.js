@@ -47,9 +47,12 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://shrivi.onrender.com',
   'https://www.shrivi.onrender.com',
+  'https://shrivicreations.vercel.app',
+  'https://www.shrivicreations.vercel.app',
   'https://shrivi-creations.vercel.app',
   'https://www.shrivi-creations.vercel.app',
-];
+  process.env.CLIENT_URL,
+].filter(Boolean);
 
 app.use(
   cors({
