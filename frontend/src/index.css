@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #F7ECF0;
+  color: #2F2621;
+}
+
+::selection {
+  background-color: #C18A64;
+  color: #F7F2EC;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F2EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #8F9D88;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6E7C67;
+}
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #C8A66A;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-cream px-7 py-3.5 rounded-full font-body text-sm tracking-wide transition-all duration-300 hover:bg-[#9D5B6B]  hover:text-ink hover:shadow-soft active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent border border-ink/30 text-ink px-7 py-3.5 rounded-full font-body text-sm tracking-wide transition-all duration-300 hover:bg-[#9D5B6B]  hover:text-ink active:scale-[0.98];
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-cream px-7 py-3.5 rounded-full font-body text-sm tracking-wide transition-all duration-300 hover:bg-gold-dark hover:shadow-soft active:scale-[0.98];
+  }
+
+  .form-input {
+    @apply mt-2 block w-full border border-ink/15 rounded-lg px-4 py-3 text-sm outline-none focus:border-sage bg-transparent;
+  }
+
+  .section-eyebrow {
+    @apply font-body text-xs tracking-[0.25em] uppercase text-sage-dark font-medium;
+  }
+
+  .section-title {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl text-ink leading-[1.15];
+  }
+
+  .glass-panel {
+    @apply bg-cream/70 backdrop-blur-md border border-white/40 shadow-glass;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-blush via-cream-dark to-blush bg-[length:200%_100%] animate-shimmer;
+  }
+
+  /* The "stitch line" signature motif — a hand-drawn thread that traces itself
+     under section titles and dividers, echoing the brand's crochet craft. */
+  .stitch-underline {
+    display: block;
+    width: 90px;
+    height: 14px;
+    margin-top: 14px;
+  }
+  .stitch-underline path {
+    stroke: #C8A66A;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+  }
+  .stitch-underline.in-view path {
+    animation: drawLine 1.4s ease forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
