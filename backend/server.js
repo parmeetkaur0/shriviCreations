@@ -12,6 +12,7 @@ dotenv.config();
 
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
+import { runStartupTask } from './utils/startupTask.js';
 
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
@@ -28,6 +29,7 @@ import bannerRoutes from './routes/bannerRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 
 connectDB();
+runStartupTask();
 
 const app = express();
 
